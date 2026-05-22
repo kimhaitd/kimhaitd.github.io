@@ -72,7 +72,7 @@
     .bg-layer{
       position:fixed;
       inset:0;
-      background:url('https://drive.google.com/uc?export=view&id=1MIm5Xq4j9tdwNdKleIveJEZ9IlziHPRC) center/cover no-repeat;
+      background:url('https://lh3.googleusercontent.com/d/1MIm5Xq4j9tdwNdKleIveJEZ9IlziHPRC') center/cover no-repeat;
       filter:brightness(0.35) blur(2px);
       transform:scale(1.1);
       animation:bgZoom 20s infinite alternate;
@@ -439,7 +439,23 @@
     @media(max-width:768px){
       .intro-title{
         font-size:4rem;
+        #enterBtn{
+          min-width:unset;
+          width:90%;
+          font-size:0.95rem;
+          padding:16px 20px;
       }
+        
+        #loadingScreen h1{
+  font-size:2.3rem;
+  text-align:center;
+  line-height:1.4;
+  padding:0 25px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+     }
 
       .section-title{
         font-size:3rem;
@@ -468,19 +484,39 @@
     }
     #enterBtn{
   margin-top:40px;
-  padding:18px 45px;
+  padding:18px 38px;
+
   border:none;
   border-radius:60px;
+
   background:rgba(255,255,255,0.12);
   color:white;
+
   font-size:1rem;
-  letter-spacing:4px;
+  font-family:'Poppins',sans-serif;
+
+  letter-spacing:1px;
+  line-height:1.5;
+
   cursor:pointer;
+
   backdrop-filter:blur(12px);
   border:1px solid rgba(255,255,255,0.2);
-  transition:0.5s;
-}
 
+  transition:0.5s;
+
+  overflow:hidden;
+  position:relative;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  min-width:320px;
+  min-height:65px;
+}
 #enterBtn:hover{
   transform:scale(1.08);
   box-shadow:0 0 35px rgba(255,255,255,0.35);
@@ -590,11 +626,11 @@
   <h1 class="section-title">Những kỷ niệm nhỏ của chúng ta 💫</h1>
 
   <div class="gallery">
-    <div class="photo-card"><img src="https://drive.google.com/uc?export=view&id=13J1inwkpHGyBNSZZsLaSslvyH1Nb5tQK"></div>
-    <div class="photo-card"><img src="https://drive.google.com/uc?export=view&id=1MIm5Xq4j9tdwNdKleIveJEZ9IlziHPRC"></div>
-    <div class="photo-card"><img src="https://drive.google.com/uc?export=view&id=1hcYpAsZHu1vWu8CdcSqOMfw1hRddlae9"></div>
-    <div class="photo-card"><img src="https://drive.google.com/uc?export=view&id=1tG8NEOAN3ShdBaoQqOjMq7c84zt8q8gr"></div>
-    <div class="photo-card"><img src="https://drive.google.com/uc?export=view&id=1Qsfhx6fost-ufL3vD7qSQNHtFwxPzfCS"></div>
+    <div class="photo-card"><img src="https://lh3.googleusercontent.com/d/13J1inwkpHGyBNSZZsLaSslvyH1Nb5tQK""></div>
+    <div class="photo-card"><img src="ttps://lh3.googleusercontent.com/d/1MIm5Xq4j9tdwNdKleIveJEZ9IlziHPRC"></div>
+    <div class="photo-card"><img src="https://lh3.googleusercontent.com/d/1hcYpAsZHu1vWu8CdcSqOMfw1hRddlae9"></div>
+    <div class="photo-card"><img src="https://lh3.googleusercontent.com/d/1tG8NEOAN3ShdBaoQqOjMq7c84zt8q8gr"></div>
+    <div class="photo-card"><img src="https://lh3.googleusercontent.com/d/1Qsfhx6fost-ufL3vD7qSQNHtFwxPzfCS"></div>
   </div>
 </section>
 
