@@ -471,13 +471,6 @@
     padding:0 20px;
     }
 
-  #enterBtn{
-    min-width:unset;
-    width:90%;
-    font-size:0.95rem;
-    padding:16px 20px;
-  }
-
       .section-title{
         font-size:1.9rem;
         padding:0 15px;
@@ -515,7 +508,8 @@
   margin-top:45px;
 
   padding:28px 65px;
-
+  width:560px;
+  max-width:92%;
   border:none;
   border-radius:80px;
 
@@ -558,36 +552,18 @@
     0 0 50px rgba(255,0,150,0.18);
 }
 #enterBtn:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 35px rgba(255,255,255,0.35);
+  transform:scale(1.05);
 }
-    #enterBtn{
-  overflow:hidden;
-  position:relative;
-  text-shadow:
-    0 0 8px rgba(255,255,255,0.6),
-    0 0 20px rgba(255,255,255,0.3);
-}
+@media(max-width:768px){
 
-#enterBtn::before{
-  content:'';
-  position:absolute;
-  top:0;
-  left:-120%;
-  width:60%;
-  height:100%;
+  #enterBtn{
+    width:92%;
+    height:88px;
 
-  background:linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.7),
-    transparent
-  );
+    font-size:1.05rem;
 
-  transform:skewX(-25deg);
-
-  animation:autoShine 3s infinite;
-}
+    padding:0 20px;
+  }
 
 @keyframes autoShine{
   0%{
