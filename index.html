@@ -43,14 +43,16 @@
     }
 
     #loadingScreen h1{
-      font-size:4rem;
+      font-size:3.5rem;
       font-family:'Great Vibes',cursive;
       text-shadow:
         0 0 10px rgba(255,255,255,0.7),
         0 0 40px rgba(255,0,150,0.5),
         0 0 80px rgba(255,0,200,0.3);
-      letter-spacing:3px;
+      letter-spacing:2px;
       animation:pulse 2s infinite;
+      text-align:center;
+      line-height:1.4;
     }
 
     #loadingScreen p{
@@ -131,13 +133,14 @@
 
     /* HERO */
     .hero{
-      height:100vh;
+      min-height:100vh;
+      height:auto;
       display:flex;
       justify-content:center;
       align-items:center;
       flex-direction:column;
       text-align:center;
-      padding:20px;
+      padding:120px 20px 80px;
       position:relative;
     }
 
@@ -173,6 +176,7 @@
       backdrop-filter:blur(15px);
       line-height:2;
       animation:glow 5s infinite;
+      white-space:pre-line;
     }
 
     @keyframes glow{
@@ -224,10 +228,16 @@
     }
 
     .section-title{
-      font-size:4rem;
-      font-family:'Great Vibes',cursive;
+      font-size:2.8rem;
+      font-family:'Poppins',sans-serif;
+      font-weight:600;
       margin-bottom:50px;
-    }
+      text-align:center;
+      line-height:1.5;
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.35),
+        0 0 30px rgba(255,0,140,0.25);
+}
 
     .gallery{
       display:flex;
@@ -352,6 +362,10 @@
       animation:letterZoom 1.5s ease;
       position:relative;
       overflow:hidden;
+      max-height:90vh;
+      overflow-y:auto;
+      overflow-x:hidden;
+      -webkit-overflow-scrolling:touch;
     }
 
     @keyframes letterZoom{
@@ -411,8 +425,9 @@
       position:fixed;
       top:20px;
       right:20px;
-      width:90px;
-      height:90px;
+      width:60px;
+      height:60px;
+      font-size:1.4rem;
       border-radius:50%;
       background:rgba(255,255,255,0.1);
       backdrop-filter:blur(10px);
@@ -439,26 +454,34 @@
     @media(max-width:768px){
       .intro-title{
         font-size:4rem;
-        #enterBtn{
-          min-width:unset;
-          width:90%;
-          font-size:0.95rem;
-          padding:16px 20px;
-      }
+      .hero{
+  padding-top:140px;
+  padding-bottom:100px;
+    }
         
-        #loadingScreen h1{
-  font-size:2.3rem;
-  text-align:center;
-  line-height:1.4;
-  padding:0 25px;
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-     }
+        #loadingScreen{
+    text-align:center;
+    padding:20px;
+    }
+
+  #loadingScreen h1{
+    font-size:2rem;
+    text-align:center;
+    line-height:1.5;
+    padding:0 20px;
+    }
+
+  #enterBtn{
+    min-width:unset;
+    width:90%;
+    font-size:0.95rem;
+    padding:16px 20px;
+  }
 
       .section-title{
-        font-size:3rem;
+        font-size:1.9rem;
+        padding:0 15px;
+        line-height:1.6;
         text-shadow:
           0 0 10px rgba(255,255,255,0.5),
           0 0 30px rgba(255,0,140,0.4);
@@ -479,9 +502,15 @@
       }
 
       .letter-card{
-        padding:30px;
-      }
+        padding:25px;
+        width:95%;
+        max-height:85vh;
     }
+     .letter-text{
+  font-size:0.95rem;
+  line-height:2;
+  }
+        
     #enterBtn{
   margin-top:40px;
   padding:18px 38px;
@@ -524,6 +553,9 @@
     #enterBtn{
   overflow:hidden;
   position:relative;
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.6),
+    0 0 20px rgba(255,255,255,0.3);
 }
 
 #enterBtn::before{
@@ -542,16 +574,23 @@
   );
 
   transform:skewX(-25deg);
+
+  animation:autoShine 3s infinite;
 }
 
-#enterBtn:hover::before{
-  animation:shine 1.2s;
-}
+@keyframes autoShine{
+  0%{
+    left:-120%;
+  }
 
-@keyframes shine{
+  40%{
+    left:160%;
+  }
+
   100%{
     left:160%;
   }
+
 }
     .hero,
     .gallery-section,
@@ -570,6 +609,10 @@
     opacity:1;
     transform:translateY(0);
   }
+}
+  .letter-text{
+    text-align:justify;
+    text-justify:inter-word;
 }
   </style>
 </head>
@@ -623,11 +666,12 @@
 </section>
 
 <section class="gallery-section">
+  </div>
   <h1 class="section-title">Những kỷ niệm nhỏ của chúng ta 💫</h1>
 
   <div class="gallery">
-    <div class="photo-card"><img src="https://lh3.googleusercontent.com/d/13J1inwkpHGyBNSZZsLaSslvyH1Nb5tQK""></div>
-    <div class="photo-card"><img src="ttps://lh3.googleusercontent.com/d/1MIm5Xq4j9tdwNdKleIveJEZ9IlziHPRC"></div>
+    <div class="photo-card"><img src="https://lh3.googleusercontent.com/d/13J1inwkpHGyBNSZZsLaSslvyH1Nb5tQK"></div>
+    <div class="photo-card"><img src="https://lh3.googleusercontent.com/d/1MIm5Xq4j9tdwNdKleIveJEZ9IlziHPRC"></div>
     <div class="photo-card"><img src="https://lh3.googleusercontent.com/d/1hcYpAsZHu1vWu8CdcSqOMfw1hRddlae9"></div>
     <div class="photo-card"><img src="https://lh3.googleusercontent.com/d/1tG8NEOAN3ShdBaoQqOjMq7c84zt8q8gr"></div>
     <div class="photo-card"><img src="https://lh3.googleusercontent.com/d/1Qsfhx6fost-ufL3vD7qSQNHtFwxPzfCS"></div>
@@ -648,7 +692,7 @@
   <div class="letter-card">
     <h1>To Nguyễn Hạ My 💖</h1>
 
-    <p>
+    <p class="letter-text">
       Chào bé yêu của anh nháaa, ✨
       <br><br>
       Món quà này chắc có lẽ không chỉ đơn giản như một lời chúc sinh nhật gửi đến em đâu. Mà đây như một khoảng trời nho nhỏ kèm theo một chút tâm tư anh làm nên dành riêng cho em.
@@ -706,7 +750,6 @@ enterBtn.addEventListener('click', () => {
   started = true;
 
   loadingScreen.style.transition = '1.5s';
-  loadingScreen.style.opacity = '0';
 
   setTimeout(() => {
     loadingScreen.style.display = 'none';
@@ -762,7 +805,7 @@ enterBtn.addEventListener('click', () => {
     },9000);
   }
 
-  setInterval(createParticle,250);
+  setInterval(createParticle,500);
 
   // LETTER SCENE
   const envelope = document.getElementById('envelope');
