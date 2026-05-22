@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Nguyễn Hạ My 💖</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:black;
+      overflow-x:hidden;
+      color:white;
+    }
+
+    body::-webkit-scrollbar{
+      width:0;
+    }
+
+    /* LOADING */
+    #loadingScreen{
+      position:fixed;
+      inset:0;
+      background:black;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      z-index:999999;
+      animation:loadingOut 2s forwards;
+      animation-delay:4s;
+    }
+
+    #loadingScreen h1{
+      font-size:4rem;
+      font-family:'Great Vibes',cursive;
+      animation:pulse 2s infinite;
+    }
+
+    #loadingScreen p{
+      margin-top:20px;
+      letter-spacing:4px;
+      opacity:0.7;
+    }
+
+    @keyframes loadingOut{
+      to{
+        opacity:0;
+        visibility:hidden;
+      }
+    }
+
+    @keyframes pulse{
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.08);}
+    }
+
+    /* BACKGROUND */
+    .bg-layer{
+      position:fixed;
+      inset:0;
+      background:url('background.jpg') center/cover no-repeat;
+      filter:brightness(0.35);
+      transform:scale(1.1);
+      animation:bgZoom 20s infinite alternate;
+      z-index:-5;
+    }
+
+    @keyframes bgZoom{
+      from{transform:scale(1.1);}
+      to{transform:scale(1.25);}
+    }
+
+    .overlay{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(255,0,111,0.15));
+      z-index:-4;
+    }
+
+    .stars{
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      z-index:-3;
+    }
+
+    .star{
+      position:absolute;
+      width:3px;
+      height:3px;
+      background:white;
+      border-radius:50%;
+      animation:twinkle 3s infinite;
+    }
+
+    @keyframes twinkle{
+      0%,100%{opacity:0.2; transform:scale(1);}
+      50%{opacity:1; transform:scale(2);}
+    }
+
+    .rainbow-light{
+      position:fixed;
+      width:200%;
+      height:200%;
+      top:-50%;
+      left:-50%;
+      background:conic-gradient(red,orange,yellow,green,cyan,blue,purple,red);
+      opacity:0.06;
+      animation:rotate 30s linear infinite;
+      z-index:-2;
+    }
+
+    @keyframes rotate{
+      from{transform:rotate(0deg);}
+      to{transform:rotate(360deg);}
+    }
+
+    /* HERO */
+    .hero{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      padding:20px;
+      position:relative;
+    }
+
+    .intro-title{
+      font-size:7rem;
+      font-family:'Great Vibes',cursive;
+      text-shadow:0 0 30px rgba(255,255,255,0.8);
+      animation:float 4s ease-in-out infinite;
+    }
+
+    .subtitle{
+      margin-top:10px;
+      font-size:1.3rem;
+      letter-spacing:3px;
+      opacity:0.9;
+    }
+
+    @keyframes float{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-15px);}
+    }
+
+    .story-box{
+      margin-top:35px;
+      max-width:850px;
+      padding:30px;
+      border-radius:30px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.15);
+      backdrop-filter:blur(15px);
+      line-height:2;
+      animation:glow 5s infinite;
+    }
+
+    @keyframes glow{
+      0%,100%{box-shadow:0 0 20px rgba(255,255,255,0.1);}
+      50%{box-shadow:0 0 50px rgba(255,0,140,0.4);}
+    }
+
+    /* COUNTDOWN */
+    .countdown{
+      margin-top:35px;
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .time-box{
+      width:120px;
+      height:120px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.15);
+      border-radius:25px;
+      backdrop-filter:blur(12px);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      transform-style:preserve-3d;
+      animation:cardFloat 5s ease-in-out infinite;
+    }
+
+    @keyframes cardFloat{
+      0%,100%{transform:translateY(0) rotateX(0deg);}
+      50%{transform:translateY(-15px) rotateX(10deg);}
+    }
+
+    .time-box h2{
+      font-size:2.2rem;
+    }
+
+    /* PHOTO GALLERY */
+    .gallery-section{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      padding:100px 20px;
+    }
+
+    .section-title{
+      font-size:4rem;
+      font-family:'Great Vibes',cursive;
+      margin-bottom:50px;
+    }
+
+    .gallery{
+      display:flex;
+      gap:25px;
+      flex-wrap:wrap;
+      justify-content:center;
+      perspective:1000px;
+    }
+
+    .photo-card{
+      width:260px;
+      height:360px;
+      border-radius:30px;
+      overflow:hidden;
+      position:relative;
+      transform-style:preserve-3d;
+      transition:1s;
+      animation:galleryFloat 6s ease-in-out infinite;
+      box-shadow:0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .photo-card:hover{
+      transform:rotateY(15deg) scale(1.05);
+    }
+
+    .photo-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .photo-card::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    }
+
+    @keyframes galleryFloat{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-15px);}
+    }
+
+    /* LETTER */
+    .letter-section{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      position:relative;
+      padding:50px 20px;
+    }
+
+    .envelope{
+      width:260px;
+      height:170px;
+      position:relative;
+      cursor:pointer;
+      transition:1s;
+      margin-top:40px;
+    }
+
+    .envelope-body{
+      width:100%;
+      height:100%;
+      background:white;
+      border-radius:20px;
+      position:absolute;
+      overflow:hidden;
+      box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .envelope-top{
+      position:absolute;
+      width:0;
+      height:0;
+      border-left:130px solid transparent;
+      border-right:130px solid transparent;
+      border-top:90px solid #ff5c8a;
+      transform-origin:top;
+      transition:1s;
+      z-index:2;
+    }
+
+    .envelope.open .envelope-top{
+      transform:rotateX(180deg);
+    }
+
+    /* LETTER SCENE */
+    #letterScene{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(135deg,#120012,#2a0038,#ff4f93);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:99999;
+      animation:fadeScene 1.5s ease;
+      overflow:hidden;
+    }
+
+    @keyframes fadeScene{
+      from{opacity:0;}
+      to{opacity:1;}
+    }
+
+    .letter-card{
+      width:90%;
+      max-width:900px;
+      padding:50px;
+      border-radius:35px;
+      background:rgba(255,255,255,0.1);
+      backdrop-filter:blur(15px);
+      border:1px solid rgba(255,255,255,0.15);
+      line-height:2.2;
+      animation:letterZoom 1.5s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    @keyframes letterZoom{
+      from{
+        opacity:0;
+        transform:scale(0.7) translateY(50px);
+      }
+      to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+      }
+    }
+
+    .letter-card h1{
+      font-size:4rem;
+      margin-bottom:20px;
+      font-family:'Great Vibes',cursive;
+    }
+
+    .back-btn{
+      margin-top:30px;
+      padding:15px 35px;
+      border:none;
+      border-radius:50px;
+      background:white;
+      color:#ff4f93;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.4s;
+    }
+
+    .back-btn:hover{
+      transform:scale(1.08);
+    }
+
+    /* PARTICLES */
+    .particle{
+      position:absolute;
+      bottom:-50px;
+      animation:rise linear infinite;
+      opacity:0.8;
+    }
+
+    @keyframes rise{
+      from{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+      }
+      20%{opacity:1;}
+      to{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+      }
+    }
+
+    .music-disc{
+      position:fixed;
+      top:20px;
+      right:20px;
+      width:90px;
+      height:90px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.1);
+      backdrop-filter:blur(10px);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:2rem;
+      animation:spin 6s linear infinite;
+      z-index:999;
+    }
+
+    @keyframes spin{
+      from{transform:rotate(0deg);}
+      to{transform:rotate(360deg);}
+    }
+
+    .bottom-line{
+      padding:30px;
+      text-align:center;
+      letter-spacing:5px;
+      opacity:0.7;
+    }
+
+    @media(max-width:768px){
+      .intro-title{
+        font-size:4rem;
+      }
+
+      .section-title{
+        font-size:3rem;
+      }
+
+      .story-box{
+        font-size:0.95rem;
+      }
+
+      .time-box{
+        width:90px;
+        height:90px;
+      }
+
+      .photo-card{
+        width:180px;
+        height:260px;
+      }
+
+      .letter-card{
+        padding:30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loadingScreen">
+  <h1>For Hạ My 💖</h1>
+  <p>LOADING A LITTLE UNIVERSE...</p>
+</div>
+
+<div class="bg-layer"></div>
+<div class="overlay"></div>
+<div class="rainbow-light"></div>
+<div class="stars" id="stars"></div>
+<div class="music-disc">🎵</div>
+
+<section class="hero">
+  <h1 class="intro-title">Happy Birthday</h1>
+  <div class="subtitle">Nguyễn Hạ My — 24/05/2006 ✨</div>
+
+  <div class="story-box" id="storyTyping"></div>
+
+  <div class="countdown">
+    <div class="time-box">
+      <h2 id="days">00</h2>
+      <p>Ngày</p>
+    </div>
+
+    <div class="time-box">
+      <h2 id="hours">00</h2>
+      <p>Giờ</p>
+    </div>
+
+    <div class="time-box">
+      <h2 id="minutes">00</h2>
+      <p>Phút</p>
+    </div>
+
+    <div class="time-box">
+      <h2 id="seconds">00</h2>
+      <p>Giây</p>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <h1 class="section-title">Our Little Memories 💫</h1>
+
+  <div class="gallery">
+    <div class="photo-card"><img src="photo1.jpg"></div>
+    <div class="photo-card"><img src="photo2.jpg"></div>
+    <div class="photo-card"><img src="photo3.jpg"></div>
+    <div class="photo-card"><img src="photo4.jpg"></div>
+    <div class="photo-card"><img src="photo5.jpg"></div>
+  </div>
+</section>
+
+<section class="letter-section">
+  <h1 class="section-title">One More Thing 💌</h1>
+
+  <div class="envelope" id="envelope">
+    <div class="envelope-top"></div>
+
+    <div class="envelope-body"></div>
+  </div>
+</section>
+
+<div id="letterScene">
+  <div class="letter-card">
+    <h1>To Nguyễn Hạ My 💖</h1>
+
+    <p>
+      Có lẽ đây không chỉ là một món quà sinh nhật ✨
+      <br><br>
+      Mà là cả một khoảng trời nhỏ được tạo ra chỉ dành riêng cho cậu.
+      <br><br>
+      Chúc Nguyễn Hạ My luôn hạnh phúc, luôn rạng rỡ và sẽ gặp thật nhiều điều tốt đẹp trên hành trình tuổi mới 🌷
+      <br><br>
+      Mong rằng mọi ước mơ của cậu rồi sẽ thành hiện thực.
+      Và dù có thế nào đi nữa,
+      hy vọng cậu vẫn luôn là phiên bản tuyệt vời nhất của chính mình ❤️
+      <br><br>
+      Happy Birthday — 24/05/2006 🎂
+    </p>
+
+    <button class="back-btn" id="backBtn">Quay lại thế giới nhỏ ✨</button>
+  </div>
+</div>
+
+<div class="bottom-line">MADE WITH LOVE FOR HẠ MY ✨</div>
+
+<audio autoplay loop controls style="position:fixed; bottom:10px; right:10px; z-index:9999; opacity:0.75;">
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  // STORY TYPING
+  const story = `Có những người xuất hiện giống như một vì sao nhỏ trong cuộc đời người khác ✨
+
+Và có lẽ Nguyễn Hạ My chính là một người như vậy.
+
+Ngày hôm nay không chỉ là sinh nhật của cậu, mà còn là ngày thế giới có thêm một người tuyệt vời để yêu thương 💖`;
+
+  let i = 0;
+
+  function typing(){
+    if(i < story.length){
+      document.getElementById('storyTyping').innerHTML += story.charAt(i);
+      i++;
+      setTimeout(typing,35);
+    }
+  }
+
+  setTimeout(typing,4000);
+
+  // COUNTDOWN
+  const targetDate = new Date('May 24, 2026 00:00:00').getTime();
+
+  setInterval(()=>{
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    document.getElementById('days').innerHTML = Math.floor(distance / (1000*60*60*24));
+    document.getElementById('hours').innerHTML = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+    document.getElementById('minutes').innerHTML = Math.floor((distance % (1000*60*60))/(1000*60));
+    document.getElementById('seconds').innerHTML = Math.floor((distance % (1000*60))/1000);
+  },1000);
+
+  // STARS
+  for(let s=0;s<150;s++){
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = Math.random()*100 + 'vw';
+    star.style.top = Math.random()*100 + 'vh';
+    star.style.animationDelay = Math.random()*3 + 's';
+    document.getElementById('stars').appendChild(star);
+  }
+
+  // PARTICLES
+  function createParticle(){
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+
+    const icons = ['❤','✨','💖','⭐','❄'];
+    particle.innerHTML = icons[Math.floor(Math.random()*icons.length)];
+
+    particle.style.left = Math.random()*100 + 'vw';
+    particle.style.fontSize = Math.random()*30 + 15 + 'px';
+    particle.style.animationDuration = Math.random()*5 + 4 + 's';
+
+    document.body.appendChild(particle);
+
+    setTimeout(()=>{
+      particle.remove();
+    },9000);
+  }
+
+  setInterval(createParticle,250);
+
+  // LETTER SCENE
+  const envelope = document.getElementById('envelope');
+  const letterScene = document.getElementById('letterScene');
+  const backBtn = document.getElementById('backBtn');
+
+  envelope.addEventListener('click',()=>{
+    envelope.classList.add('open');
+
+    setTimeout(()=>{
+      letterScene.style.display = 'flex';
+    },1000);
+  });
+
+  backBtn.addEventListener('click',()=>{
+    letterScene.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
