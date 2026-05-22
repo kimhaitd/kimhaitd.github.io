@@ -454,6 +454,8 @@
     @media(max-width:768px){
       .intro-title{
         font-size:4rem;
+     }
+      
       .hero{
   padding-top:140px;
   padding-bottom:100px;
@@ -507,9 +509,13 @@
     #enterBtn{
   margin-top:45px;
 
-  padding:28px 65px;
-  width:560px;
-  max-width:92%;
+  width:90%;
+  max-width:600px;
+
+  height:95px;
+
+  padding:25px 40px;
+
   border:none;
   border-radius:80px;
 
@@ -518,7 +524,6 @@
 
   font-size:1.25rem;
   font-family:'Poppins',sans-serif;
-
   font-weight:500;
 
   letter-spacing:1px;
@@ -540,9 +545,6 @@
 
   text-align:center;
 
-  min-width:520px;
-  min-height:95px;
-
   text-shadow:
     0 0 8px rgba(255,255,255,0.7),
     0 0 25px rgba(255,255,255,0.4);
@@ -550,6 +552,7 @@
   box-shadow:
     0 0 20px rgba(255,255,255,0.15),
     0 0 50px rgba(255,0,150,0.18);
+  animation:buttonFloat 3s ease-in-out infinite;
 }
 #enterBtn:hover{
   transform:scale(1.05);
