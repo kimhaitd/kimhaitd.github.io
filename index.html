@@ -33,19 +33,23 @@
     #loadingScreen{
       position:fixed;
       inset:0;
-      background:black;
+      background:
+        radial-gradient(circle at center, #2a0035 0%, #000 70%);
       display:flex;
       justify-content:center;
       align-items:center;
       flex-direction:column;
       z-index:999999;
-      animation:loadingOut 2s forwards;
-      animation-delay:4s;
     }
 
     #loadingScreen h1{
       font-size:4rem;
       font-family:'Great Vibes',cursive;
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.7),
+        0 0 40px rgba(255,0,150,0.5),
+        0 0 80px rgba(255,0,200,0.3);
+      letter-spacing:3px;
       animation:pulse 2s infinite;
     }
 
@@ -55,10 +59,7 @@
       opacity:0.7;
     }
 
-    @keyframes loadingOut{
-      to{
-        opacity:0;
-        visibility:hidden;
+    loadingScreen.style.opacity = '0';
       }
     }
 
@@ -71,8 +72,8 @@
     .bg-layer{
       position:fixed;
       inset:0;
-      background:url('https://drive.google.com/file/d/1MIm5Xq4j9tdwNdKleIveJEZ9IlziHPRC/view?usp=sharing) center/cover no-repeat;
-      filter:brightness(0.35);
+      background:url('https://drive.google.com/uc?export=view&id=1MIm5Xq4j9tdwNdKleIveJEZ9IlziHPRC) center/cover no-repeat;
+      filter:brightness(0.35) blur(2px);
       transform:scale(1.1);
       animation:bgZoom 20s infinite alternate;
       z-index:-5;
@@ -143,7 +144,10 @@
     .intro-title{
       font-size:7rem;
       font-family:'Great Vibes',cursive;
-      text-shadow:0 0 30px rgba(255,255,255,0.8);
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.6),
+        0 0 30px rgba(255,0,120,0.6),
+        0 0 60px rgba(255,0,180,0.4);
       animation:float 4s ease-in-out infinite;
     }
 
@@ -253,6 +257,11 @@
       width:100%;
       height:100%;
       object-fit:cover;
+      transition:1s;
+    }
+    .photo-card:hover img{
+      transform:scale(1.1);
+      filter:brightness(1.1);
     }
 
     .photo-card::after{
@@ -434,6 +443,9 @@
 
       .section-title{
         font-size:3rem;
+        text-shadow:
+          0 0 10px rgba(255,255,255,0.5),
+          0 0 30px rgba(255,0,140,0.4);
       }
 
       .story-box{
@@ -454,13 +466,89 @@
         padding:30px;
       }
     }
+    #enterBtn{
+  margin-top:40px;
+  padding:18px 45px;
+  border:none;
+  border-radius:60px;
+  background:rgba(255,255,255,0.12);
+  color:white;
+  font-size:1rem;
+  letter-spacing:4px;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.2);
+  transition:0.5s;
+}
+
+#enterBtn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 35px rgba(255,255,255,0.35);
+}
+    #enterBtn{
+  overflow:hidden;
+  position:relative;
+}
+
+#enterBtn::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:60%;
+  height:100%;
+
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.7),
+    transparent
+  );
+
+  transform:skewX(-25deg);
+}
+
+#enterBtn:hover::before{
+  animation:shine 1.2s;
+}
+
+@keyframes shine{
+  100%{
+    left:160%;
+  }
+}
+    .hero,
+    .gallery-section,
+    .letter-section,
+    .bottom-line{
+  animation:pageFade 2s ease;
+}
+
+@keyframes pageFade{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
   </style>
 </head>
 <body>
 
 <div id="loadingScreen">
-  <h1>For Hạ My 💖</h1>
+
+  <h1>Dành tặng Bé Miiu💖</h1>
+
   <p>LOADING A LITTLE UNIVERSE...</p>
+
+  <button id="enterBtn">
+    Khám phá thế giới nhỏ này thôi nàooo✨
+  </button>
+
 </div>
 
 <div class="bg-layer"></div>
@@ -502,11 +590,11 @@
   <h1 class="section-title">Những kỷ niệm nhỏ của chúng ta 💫</h1>
 
   <div class="gallery">
-    <div class="photo-card"><img src="https://drive.google.com/file/d/13J1inwkpHGyBNSZZsLaSslvyH1Nb5tQK/view?usp=sharing"></div>
-    <div class="photo-card"><img src="https://drive.google.com/file/d/1MIm5Xq4j9tdwNdKleIveJEZ9IlziHPRC/view?usp=sharing"></div>
-    <div class="photo-card"><img src="https://drive.google.com/file/d/1hcYpAsZHu1vWu8CdcSqOMfw1hRddlae9/view?usp=sharing"></div>
-    <div class="photo-card"><img src="https://drive.google.com/file/d/1tG8NEOAN3ShdBaoQqOjMq7c84zt8q8gr/view?usp=sharing"></div>
-    <div class="photo-card"><img src="https://drive.google.com/file/d/1Qsfhx6fost-ufL3vD7qSQNHtFwxPzfCS/view?usp=sharing"></div>
+    <div class="photo-card"><img src="https://drive.google.com/uc?export=view&id=13J1inwkpHGyBNSZZsLaSslvyH1Nb5tQK"></div>
+    <div class="photo-card"><img src="https://drive.google.com/uc?export=view&id=1MIm5Xq4j9tdwNdKleIveJEZ9IlziHPRC"></div>
+    <div class="photo-card"><img src="https://drive.google.com/uc?export=view&id=1hcYpAsZHu1vWu8CdcSqOMfw1hRddlae9"></div>
+    <div class="photo-card"><img src="https://drive.google.com/uc?export=view&id=1tG8NEOAN3ShdBaoQqOjMq7c84zt8q8gr"></div>
+    <div class="photo-card"><img src="https://drive.google.com/uc?export=view&id=1Qsfhx6fost-ufL3vD7qSQNHtFwxPzfCS"></div>
   </div>
 </section>
 
@@ -532,7 +620,7 @@
       <br><br>
       Chúc Bé Miiu sẽ luôn hạnh phúc, vui vẻ, lúc nào cũng rạng rỡ xinh tươi như một bông hoa nhé và sẽ gặp thật nhiều điều tốt đẹp và sẽ luôn thành công trên hành trình tuổi mới này nữa🌷
       <br><br>
-      Cảm ơn em đã đến với thé giới này và cũng như thế giới nho nhỏ của anh nữa. Anh mong là mọi dự định của em đều sẽ thành hiện thực và suôn sẻ. Nhớ phải giữ sức khỏe nữa nhá.
+      Cảm ơn em đã đến với thế giới này và cũng như thế giới nho nhỏ của anh nữa. Anh mong là mọi dự định của em đều sẽ thành hiện thực và suôn sẻ. Nhớ phải giữ sức khỏe nữa nhá.
       À cũng chúc em sẽ luôn tự tin tiến về phía trước nhé, cứ thoải mái làm những gì em thích và cố gắng đồng hành cùng nhau nữa nè. Một ngày không xa nữa thôiii.
       Hy vọng rằng em vẫn luôn là phiên bản tuyệt vời nhất của chính mình💗
       <br><br>
@@ -547,7 +635,8 @@
 
 <div class="bottom-line">FROM NHIM NHẢI WITH LOVE FOR HẠ MY! 💗</div>
 
-<audio autoplay loop controls style="position:fixed; bottom:10px; right:10px; z-index:9999; opacity:0.75;">
+<audio loop controls id="music"
+  style="position:fixed; bottom:10px; right:10px; z-index:9999; opacity:0.75;">
   <source src="Nhạc sinh nhật.mp3" type="audio/mp3">
 </audio>
 
@@ -557,7 +646,7 @@
   
 Và bằng phép màu nào đó em đã xuất hiện như một vì sao chiếu sáng vào bóng tối trong cuộc sống của anh vậy.
 
-Ngày hôm nay không chỉ là sinh nhật của em, mã đây cũng là một ngày đặc biệt vì thế giới có thêm một người tuyệt vời để anh yêu thương💖`;
+Ngày hôm nay không chỉ là sinh nhật của em, mà đây cũng là một ngày đặc biệt vì thế giới có thêm một người tuyệt vời để anh yêu thương💖`;
 
   let i = 0;
 
@@ -569,14 +658,38 @@ Ngày hôm nay không chỉ là sinh nhật của em, mã đây cũng là một 
     }
   }
 
-  setTimeout(typing,4000);
+  const enterBtn = document.getElementById('enterBtn');
+const loadingScreen = document.getElementById('loadingScreen');
+const music = document.getElementById('music');
+
+let started = false;
+
+enterBtn.addEventListener('click', () => {
+
+  if(started) return;
+  started = true;
+
+  loadingScreen.style.transition = '1.5s';
+  loadingScreen.style.opacity = '0';
+
+  setTimeout(() => {
+    loadingScreen.style.display = 'none';
+  },1500);
+
+  music.play().catch(()=>{});
+
+  typing();
+});
 
   // COUNTDOWN
   const targetDate = new Date('May 24, 2026 00:00:00').getTime();
 
   setInterval(()=>{
     const now = new Date().getTime();
-    const distance = targetDate - now;
+    let distance = targetDate - now;
+    if(distance < 0){
+  distance = 0;
+}
 
     document.getElementById('days').innerHTML = Math.floor(distance / (1000*60*60*24));
     document.getElementById('hours').innerHTML = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
@@ -630,6 +743,7 @@ Ngày hôm nay không chỉ là sinh nhật của em, mã đây cũng là một 
 
   backBtn.addEventListener('click',()=>{
     letterScene.style.display = 'none';
+    envelope.classList.remove('open');
   });
 </script>
 
