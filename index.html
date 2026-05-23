@@ -567,7 +567,7 @@
 
     padding:0 20px;
   }
-
+}
 @keyframes autoShine{
   0%{
     left:-120%;
@@ -612,6 +612,86 @@
   .letter-text{
     text-align:justify;
     text-justify:inter-word;
+}
+  /* BIRTHDAY EFFECT */
+
+#birthdayEffect{
+  position:fixed;
+  inset:0;
+
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+
+  z-index:999999;
+
+  background:rgba(0,0,0,0.45);
+
+  overflow:hidden;
+}
+
+.cake{
+  font-size:9rem;
+  animation:cakePop 2s ease infinite;
+}
+
+.celebrate-text{
+  margin-top:20px;
+
+  font-size:2rem;
+  font-weight:600;
+
+  letter-spacing:3px;
+  text-align:center;
+
+  text-shadow:
+    0 0 10px white,
+    0 0 25px #ff4fd8;
+}
+
+@keyframes cakePop{
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.15);
+  }
+}
+
+/* CONFETTI */
+
+.confetti{
+  position:fixed;
+  width:12px;
+  height:12px;
+
+  top:-20px;
+
+  z-index:999999;
+
+  animation:confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+  from{
+    transform:
+      translateY(0)
+      rotate(0deg);
+
+    opacity:1;
+  }
+
+  to{
+    transform:
+      translateY(120vh)
+      rotate(720deg);
+
+    opacity:0;
+  }
+}
+      
 }
   </style>
 </head>
@@ -712,6 +792,16 @@
   </div>
 </div>
 
+  <div id="birthdayEffect">
+
+  <div class="cake">
+    🎂
+  </div>
+
+  <div class="celebrate-text">
+    HAPPY BIRTHDAY BÉ MIIU ✨
+  </div>
+</div>
 <div class="bottom-line">FROM NHIM NHẢI WITH LOVE FOR HẠ MY! 💗</div>
 
 <audio loop controls id="music"
@@ -767,6 +857,7 @@ enterBtn.addEventListener('click', () => {
     let distance = targetDate - now;
     if(distance < 0){
   distance = 0;
+  startBirthdayEffect();
 }
 
     document.getElementById('days').innerHTML = Math.floor(distance / (1000*60*60*24));
@@ -823,6 +914,59 @@ enterBtn.addEventListener('click', () => {
     letterScene.style.display = 'none';
     envelope.classList.remove('open');
   });
+  // BIRTHDAY EFFECT
+
+let birthdayStarted = false;
+
+function startBirthdayEffect(){
+
+  if(birthdayStarted) return;
+
+  birthdayStarted = true;
+
+  document.getElementById('birthdayEffect').style.display = 'flex';
+
+  // tạo pháo giấy
+  const confettiInterval = setInterval(()=>{
+
+    for(let i=0;i<25;i++){
+
+      const confetti = document.createElement('div');
+
+      confetti.classList.add('confetti');
+
+      confetti.style.left = Math.random()*100 + 'vw';
+
+      confetti.style.background = `
+        hsl(${Math.random()*360},100%,60%)
+      `;
+
+      confetti.style.animationDuration =
+        (Math.random()*3 + 3) + 's';
+
+      confetti.style.width =
+        (Math.random()*10 + 6) + 'px';
+
+      confetti.style.height =
+        (Math.random()*10 + 6) + 'px';
+
+      document.body.appendChild(confetti);
+
+      setTimeout(()=>{
+        confetti.remove();
+      },7000);
+    }
+
+  },300);
+
+  // dừng sau 6 phút
+  setTimeout(()=>{
+
+    clearInterval(confettiInterval);
+
+  },360000);
+
+}
 </script>
 
 </body>
