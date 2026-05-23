@@ -60,9 +60,6 @@
       letter-spacing:4px;
       opacity:0.7;
     }
-
-    loadingScreen.style.opacity = '0';
-      }
     }
 
     @keyframes pulse{
@@ -691,7 +688,120 @@
     opacity:0;
   }
 }
-      
+  /* CAKE AREA */
+
+.cake-area{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.candle{
+  font-size:4rem;
+  margin-top:-40px;
+  cursor:pointer;
+  animation:flicker 1s infinite;
+}
+
+@keyframes flicker{
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.12);
+  }
+}
+
+/* GIFT */
+
+.gift-area{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  animation:fadeGift 1s ease;
+}
+
+.gift-box{
+  font-size:8rem;
+  cursor:pointer;
+  animation:giftBounce 2s infinite;
+}
+
+.gift-text{
+  margin-top:20px;
+  font-size:1.5rem;
+  text-align:center;
+}
+
+@keyframes giftBounce{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-15px);
+  }
+}
+
+@keyframes fadeGift{
+  from{
+    opacity:0;
+    transform:scale(0.7);
+  }
+
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+/* NECKLACE */
+
+.necklace-area{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  animation:showNecklace 1.2s ease;
+}
+
+.necklace-box{
+  font-size:8rem;
+  animation:necklaceGlow 2s infinite;
+}
+
+.necklace-text{
+  margin-top:25px;
+  font-size:2rem;
+  text-align:center;
+  line-height:1.8;
+
+  text-shadow:
+    0 0 10px white,
+    0 0 25px #ff4fd8;
+}
+
+@keyframes necklaceGlow{
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.12);
+  }
+}
+
+@keyframes showNecklace{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}    
 }
   </style>
 </head>
@@ -794,13 +904,57 @@
 
   <div id="birthdayEffect">
 
-  <div class="cake">
-    🎂
+  <!-- BÁNH KEM -->
+  <div class="cake-area" id="cakeArea">
+
+    <div class="cake">
+      🎂
+    </div>
+
+    <div class="candle" id="candle">
+      🕯️
+    </div>
+
+    <div class="celebrate-text">
+      HAPPY BIRTHDAY BÉ MIIU ✨
+      <br>
+      <span style="font-size:1rem;">
+        Hãy thổi nến đi nào 💖
+      </span>
+    </div>
+
   </div>
 
-  <div class="celebrate-text">
-    HAPPY BIRTHDAY BÉ MIIU ✨
+  <!-- HỘP QUÀ -->
+  <div class="gift-area" id="giftArea">
+
+    <div class="gift-box" id="giftBox">
+      🎁
+    </div>
+
+    <div class="gift-text">
+      Một món quà nhỏ dành cho em ✨
+    </div>
+
   </div>
+
+  <!-- DÂY CHUYỀN -->
+  <div class="necklace-area" id="necklaceArea">
+
+    <div class="necklace-box">
+      💎
+    </div>
+
+    <div class="necklace-text">
+      MÓN QUÀ ĐẶC BIỆT 💖
+      <br><br>
+      Chúc mừng sinh nhật em yêu ✨
+    </div>
+<button id="closeBirthday" class="back-btn">
+  Đóng món quà ✨
+</button>
+  </div>
+
 </div>
 <div class="bottom-line">FROM NHIM NHẢI WITH LOVE FOR HẠ MY! 💗</div>
 
@@ -849,8 +1003,8 @@ enterBtn.addEventListener('click', () => {
   typing();
 });
 
-  // COUNTDOWN
-  const targetDate = new Date('May 24, 2026 00:00:00').getTime();
+  // COUNTDOWN TEST
+const targetDate = new Date().getTime() + 240000;
 
   setInterval(()=>{
     const now = new Date().getTime();
@@ -959,14 +1113,49 @@ function startBirthdayEffect(){
 
   },300);
 
-  // dừng sau 6 phút
+}
+  // TẮT NẾN -> HIỆN QUÀ
+
+const candle = document.getElementById('candle');
+const cakeArea = document.getElementById('cakeArea');
+const giftArea = document.getElementById('giftArea');
+
+candle.addEventListener('click',()=>{
+
+  candle.innerHTML = '💨';
+
   setTimeout(()=>{
 
-    clearInterval(confettiInterval);
+    cakeArea.style.display = 'none';
 
-  },360000);
+    giftArea.style.display = 'flex';
 
-}
+  },1000);
+
+});
+
+// MỞ QUÀ -> HIỆN DÂY CHUYỀN
+
+const giftBox = document.getElementById('giftBox');
+const necklaceArea = document.getElementById('necklaceArea');
+
+giftBox.addEventListener('click',()=>{
+
+  giftArea.style.display = 'none';
+
+  necklaceArea.style.display = 'flex';
+
+});
+  // ĐÓNG TOÀN BỘ HIỆU ỨNG SINH NHẬT
+
+const closeBirthday = document.getElementById('closeBirthday');
+const birthdayEffect = document.getElementById('birthdayEffect');
+
+closeBirthday.addEventListener('click',()=>{
+
+  birthdayEffect.style.display = 'none';
+
+});
 </script>
 
 </body>
