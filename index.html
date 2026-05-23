@@ -60,7 +60,6 @@
       letter-spacing:4px;
       opacity:0.7;
     }
-    }
 
     @keyframes pulse{
       0%,100%{transform:scale(1);}
@@ -554,7 +553,6 @@
 #enterBtn:hover{
   transform:scale(1.05);
 }
-@media(max-width:768px){
 
   #enterBtn{
     width:92%;
@@ -1165,71 +1163,77 @@
   </div>
 </div>
 
+  <!-- ===== BIRTHDAY EFFECT ===== -->
+
+<div id="birthdayEffect">
+
+  <!-- CAKE -->
+
   <div class="cake-area" id="cakeArea">
 
-  <div class="cake">
-    🎂
-  </div>
-
-  <div class="candle" id="candle">
-    🕯️
-  </div>
-
-  <div class="celebrate-text">
-
-    <div class="celebrate-title">
-      HAPPY BIRTHDAY
+    <div class="cake">
+      🎂
     </div>
 
-    <div class="celebrate-sub">
-      Hãy ước một điều rồi thổi nến nhé ✨
+    <div class="candle" id="candle">
+      🕯️
     </div>
 
-  </div>
+    <div class="celebrate-text">
 
-</div>
+      <div class="celebrate-title">
+        HAPPY BIRTHDAY
+      </div>
 
-<!-- GIFT -->
+      <div class="celebrate-sub">
+        Hãy ước một điều rồi thổi nến nhé ✨
+      </div>
 
-<div class="gift-area" id="giftArea">
-
-  <div class="gift-box" id="giftBox">
-    🎁
-  </div>
-
-  <div class="gift-text">
-    Một món quà đặc biệt dành cho em 💖
-  </div>
-
-</div>
-
-<!-- NECKLACE -->
-
-<div class="necklace-area" id="necklaceArea">
-
-  <div class="necklace-box">
-    💎
-  </div>
-
-  <div class="necklace-text">
-
-    <div class="necklace-title">
-      MÓN QUÀ ĐẶC BIỆT
-    </div>
-
-    <div class="necklace-sub">
-      Chúc mừng sinh nhật em yêu ✨
     </div>
 
   </div>
 
-  <button
-    id="closeBirthday"
-    class="close-btn">
+  <!-- GIFT -->
 
-    Đóng món quà
+  <div class="gift-area" id="giftArea">
 
-  </button>
+    <div class="gift-box" id="giftBox">
+      🎁
+    </div>
+
+    <div class="gift-text">
+      Một món quà đặc biệt dành cho em 💖
+    </div>
+
+  </div>
+
+  <!-- NECKLACE -->
+
+  <div class="necklace-area" id="necklaceArea">
+
+    <div class="necklace-box">
+      💎
+    </div>
+
+    <div class="necklace-text">
+
+      <div class="necklace-title">
+        MÓN QUÀ ĐẶC BIỆT
+      </div>
+
+      <div class="necklace-sub">
+        Chúc mừng sinh nhật em yêu ✨
+      </div>
+
+    </div>
+
+    <button
+      id="closeBirthday"
+      class="close-btn">
+
+      Đóng món quà
+
+    </button>
 
 </div>
 
@@ -1282,7 +1286,7 @@ enterBtn.addEventListener('click', () => {
 });
 
   // COUNTDOWN
-const targetDate = new Date().getTime() + 5000;
+const targetDate = new Date().getTime() + 100000;
 
   setInterval(()=>{
     const now = new Date().getTime();
