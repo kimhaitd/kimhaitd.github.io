@@ -610,7 +610,7 @@
     text-align:justify;
     text-justify:inter-word;
 }
-  /* BIRTHDAY EFFECT */
+      /* ===== BIRTHDAY LUXURY EFFECT ===== */
 
 #birthdayEffect{
   position:fixed;
@@ -623,69 +623,332 @@
 
   z-index:999999;
 
-  background:rgba(0,0,0,0.45);
+  background:
+    radial-gradient(circle at center,
+    rgba(255,80,180,0.18),
+    rgba(0,0,0,0.92));
+
+  backdrop-filter:blur(10px);
 
   overflow:hidden;
+
+  animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+  }
+
+  to{
+    opacity:1;
+  }
+}
+
+/* SPARKLE */
+
+.sparkle{
+  position:absolute;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  animation:sparkleFloat linear infinite;
+}
+
+@keyframes sparkleFloat{
+
+  0%{
+    transform:
+      translateY(30px)
+      scale(0.5);
+
+    opacity:0;
+  }
+
+  20%{
+    opacity:1;
+  }
+
+  100%{
+    transform:
+      translateY(-120vh)
+      scale(1.5);
+
+    opacity:0;
+  }
+
+}
+
+/* CAKE */
+
+.cake-area{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  animation:softPop 1.2s ease;
 }
 
 .cake{
-  font-size:9rem;
-  animation:cakePop 2s ease infinite;
+  font-size:8rem;
+
+  animation:floatCake 4s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 0 25px rgba(255,120,200,0.7));
 }
 
+@keyframes floatCake{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+}
+
+/* CANDLE */
+
+.candle{
+  font-size:3rem;
+
+  margin-top:-20px;
+
+  cursor:pointer;
+
+  animation:flicker 1s infinite;
+}
+
+@keyframes flicker{
+
+  0%,100%{
+    transform:scale(1);
+    filter:drop-shadow(0 0 8px gold);
+  }
+
+  50%{
+    transform:scale(1.1);
+    filter:drop-shadow(0 0 20px orange);
+  }
+
+}
+
+/* TEXT */
+
 .celebrate-text{
-  margin-top:20px;
-
-  font-size:2rem;
-  font-weight:600;
-
-  letter-spacing:3px;
+  margin-top:25px;
   text-align:center;
+}
+
+.celebrate-title{
+  font-size:2.5rem;
+  font-weight:600;
+  letter-spacing:3px;
 
   text-shadow:
     0 0 10px white,
-    0 0 25px #ff4fd8;
+    0 0 30px #ff4fd8;
 }
 
-@keyframes cakePop{
+.celebrate-sub{
+  margin-top:10px;
+
+  opacity:0.85;
+
+  letter-spacing:2px;
+}
+
+/* GIFT */
+
+.gift-area{
+  display:none;
+
+  flex-direction:column;
+  align-items:center;
+
+  animation:fadeGift 1s ease;
+}
+
+.gift-box{
+  font-size:7rem;
+
+  cursor:pointer;
+
+  animation:giftFloat 3s ease-in-out infinite;
+}
+
+@keyframes giftFloat{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+}
+
+.gift-text{
+  margin-top:20px;
+
+  font-size:1.2rem;
+
+  letter-spacing:2px;
+}
+
+/* NECKLACE */
+
+.necklace-area{
+  display:none;
+
+  flex-direction:column;
+  align-items:center;
+
+  animation:luxuryReveal 1.2s ease;
+}
+
+.necklace-box{
+
+  width:220px;
+  height:220px;
+
+  border-radius:30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.15),
+      rgba(255,255,255,0.04)
+    );
+
+  border:1px solid rgba(255,255,255,0.15);
+
+  backdrop-filter:blur(12px);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:5rem;
+
+  box-shadow:
+    0 0 40px rgba(255,120,200,0.2);
+
+  animation:necklaceGlow 3s infinite;
+}
+
+@keyframes necklaceGlow{
+
   0%,100%{
     transform:scale(1);
   }
 
   50%{
-    transform:scale(1.15);
+    transform:scale(1.05);
   }
+
 }
 
-/* CONFETTI */
+.necklace-text{
+  margin-top:30px;
 
-.confetti{
-  position:fixed;
-  width:12px;
-  height:12px;
+  text-align:center;
 
-  top:-20px;
-
-  z-index:999999;
-
-  animation:confettiFall linear forwards;
+  line-height:2;
 }
 
-@keyframes confettiFall{
+.necklace-title{
+  font-size:2rem;
+
+  letter-spacing:3px;
+
+  font-weight:600;
+}
+
+.necklace-sub{
+  margin-top:10px;
+
+  opacity:0.9;
+}
+
+/* CLOSE BUTTON */
+
+.close-btn{
+
+  margin-top:40px;
+
+  padding:14px 35px;
+
+  border:none;
+  border-radius:50px;
+
+  background:white;
+
+  color:#ff4fd8;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:0.4s;
+}
+
+.close-btn:hover{
+  transform:scale(1.05);
+}
+
+/* ANIMATION */
+
+@keyframes luxuryReveal{
+
   from{
-    transform:
-      translateY(0)
-      rotate(0deg);
+    opacity:0;
 
-    opacity:1;
+    transform:
+      translateY(40px)
+      scale(0.7);
   }
 
   to{
-    transform:
-      translateY(120vh)
-      rotate(720deg);
+    opacity:1;
 
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+@keyframes fadeGift{
+
+  from{
     opacity:0;
+    transform:scale(0.7);
+  }
+
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+
+}
+
+@keyframes softPop{
+
+  from{
+    opacity:0;
+    transform:scale(0.8);
+  }
+
+  to{
+    opacity:1;
+    transform:scale(1);
   }
 }
   /* CAKE AREA */
@@ -902,58 +1165,73 @@
   </div>
 </div>
 
-  <div id="birthdayEffect">
-
-  <!-- BÁNH KEM -->
   <div class="cake-area" id="cakeArea">
 
-    <div class="cake">
-      🎂
+  <div class="cake">
+    🎂
+  </div>
+
+  <div class="candle" id="candle">
+    🕯️
+  </div>
+
+  <div class="celebrate-text">
+
+    <div class="celebrate-title">
+      HAPPY BIRTHDAY
     </div>
 
-    <div class="candle" id="candle">
-      🕯️
-    </div>
-
-    <div class="celebrate-text">
-      HAPPY BIRTHDAY BÉ MIIU ✨
-      <br>
-      <span style="font-size:1rem;">
-        Hãy thổi nến đi nào 💖
-      </span>
+    <div class="celebrate-sub">
+      Hãy ước một điều rồi thổi nến nhé ✨
     </div>
 
   </div>
 
-  <!-- HỘP QUÀ -->
-  <div class="gift-area" id="giftArea">
+</div>
 
-    <div class="gift-box" id="giftBox">
-      🎁
-    </div>
+<!-- GIFT -->
 
-    <div class="gift-text">
-      Một món quà nhỏ dành cho em ✨
-    </div>
+<div class="gift-area" id="giftArea">
 
+  <div class="gift-box" id="giftBox">
+    🎁
   </div>
 
-  <!-- DÂY CHUYỀN -->
-  <div class="necklace-area" id="necklaceArea">
+  <div class="gift-text">
+    Một món quà đặc biệt dành cho em 💖
+  </div>
 
-    <div class="necklace-box">
-      💎
+</div>
+
+<!-- NECKLACE -->
+
+<div class="necklace-area" id="necklaceArea">
+
+  <div class="necklace-box">
+    💎
+  </div>
+
+  <div class="necklace-text">
+
+    <div class="necklace-title">
+      MÓN QUÀ ĐẶC BIỆT
     </div>
 
-    <div class="necklace-text">
-      MÓN QUÀ ĐẶC BIỆT 💖
-      <br><br>
+    <div class="necklace-sub">
       Chúc mừng sinh nhật em yêu ✨
     </div>
-<button id="closeBirthday" class="back-btn">
-  Đóng món quà ✨
-</button>
+
   </div>
+
+  <button
+    id="closeBirthday"
+    class="close-btn">
+
+    Đóng món quà
+
+  </button>
+
+</div>
 
 </div>
 <div class="bottom-line">FROM NHIM NHẢI WITH LOVE FOR HẠ MY! 💗</div>
@@ -1003,8 +1281,8 @@ enterBtn.addEventListener('click', () => {
   typing();
 });
 
-  // COUNTDOWN TEST
-const targetDate = new Date().getTime() + 240000;
+  // COUNTDOWN
+const targetDate = new Date().getTime() + 5000;
 
   setInterval(()=>{
     const now = new Date().getTime();
@@ -1068,7 +1346,7 @@ const targetDate = new Date().getTime() + 240000;
     letterScene.style.display = 'none';
     envelope.classList.remove('open');
   });
-  // BIRTHDAY EFFECT
+ // ===== BIRTHDAY EFFECT =====
 
 let birthdayStarted = false;
 
@@ -1078,51 +1356,63 @@ function startBirthdayEffect(){
 
   birthdayStarted = true;
 
-  document.getElementById('birthdayEffect').style.display = 'flex';
+  const birthdayEffect =
+    document.getElementById('birthdayEffect');
 
-  // tạo pháo giấy
-  const confettiInterval = setInterval(()=>{
+  birthdayEffect.style.display = 'flex';
 
-    for(let i=0;i<25;i++){
+  // TẠO SPARKLE NHẸ
 
-      const confetti = document.createElement('div');
+  setInterval(()=>{
 
-      confetti.classList.add('confetti');
+    const sparkle =
+      document.createElement('div');
 
-      confetti.style.left = Math.random()*100 + 'vw';
+    sparkle.classList.add('sparkle');
 
-      confetti.style.background = `
-        hsl(${Math.random()*360},100%,60%)
-      `;
+    const icons = ['✨','💖','⭐'];
 
-      confetti.style.animationDuration =
-        (Math.random()*3 + 3) + 's';
+    sparkle.innerHTML =
+      icons[Math.floor(Math.random()*icons.length)];
 
-      confetti.style.width =
-        (Math.random()*10 + 6) + 'px';
+    sparkle.style.left =
+      Math.random()*100 + 'vw';
 
-      confetti.style.height =
-        (Math.random()*10 + 6) + 'px';
+    sparkle.style.top =
+      '100vh';
 
-      document.body.appendChild(confetti);
+    sparkle.style.fontSize =
+      (Math.random()*18 + 12) + 'px';
 
-      setTimeout(()=>{
-        confetti.remove();
-      },7000);
-    }
+    sparkle.style.animationDuration =
+      (Math.random()*4 + 4) + 's';
 
-  },300);
+    birthdayEffect.appendChild(sparkle);
+
+    setTimeout(()=>{
+      sparkle.remove();
+    },8000);
+
+  },700);
 
 }
-  // TẮT NẾN -> HIỆN QUÀ
 
-const candle = document.getElementById('candle');
-const cakeArea = document.getElementById('cakeArea');
-const giftArea = document.getElementById('giftArea');
+// ===== TẮT NẾN =====
+
+const candle =
+  document.getElementById('candle');
+
+const cakeArea =
+  document.getElementById('cakeArea');
+
+const giftArea =
+  document.getElementById('giftArea');
 
 candle.addEventListener('click',()=>{
 
   candle.innerHTML = '💨';
+
+  candle.style.animation = 'none';
 
   setTimeout(()=>{
 
@@ -1130,14 +1420,17 @@ candle.addEventListener('click',()=>{
 
     giftArea.style.display = 'flex';
 
-  },1000);
+  },1200);
 
 });
 
-// MỞ QUÀ -> HIỆN DÂY CHUYỀN
+// ===== MỞ QUÀ =====
 
-const giftBox = document.getElementById('giftBox');
-const necklaceArea = document.getElementById('necklaceArea');
+const giftBox =
+  document.getElementById('giftBox');
+
+const necklaceArea =
+  document.getElementById('necklaceArea');
 
 giftBox.addEventListener('click',()=>{
 
@@ -1146,14 +1439,16 @@ giftBox.addEventListener('click',()=>{
   necklaceArea.style.display = 'flex';
 
 });
-  // ĐÓNG TOÀN BỘ HIỆU ỨNG SINH NHẬT
 
-const closeBirthday = document.getElementById('closeBirthday');
-const birthdayEffect = document.getElementById('birthdayEffect');
+// ===== ĐÓNG =====
+
+const closeBirthday =
+  document.getElementById('closeBirthday');
 
 closeBirthday.addEventListener('click',()=>{
 
-  birthdayEffect.style.display = 'none';
+  document.getElementById('birthdayEffect')
+    .style.display = 'none';
 
 });
 </script>
